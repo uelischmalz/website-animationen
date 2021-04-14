@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Animate.css | Übung 3</title>
+
+    <!-- Animate.css vom CDN einbinden -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+  </head>
+  <body>
+    <h1>Animate.css | Übung 3</h1>
+
+    <div id="container">
+      <div id="rahmen">
+
+        <div id="form" class="animate_animated">
+          <form>
+            <p>Name:</p>
+            <input type="text" name="name" value="">
+            <p>Email:</p>
+            <input type="text" name="email" value="">
+            <p>Nachricht:</p>
+            <textarea name="text" rows="4" cols="30"></textarea>
+            <br><br>
+            <button id="submitButton" type="button" name="button">Absenden</button>
+          </form>
+        </div>
+
+        <div id="message" class="animate_animated off">
+          <p>Nachricht wurde erfolgreich versendet.</p>
+        </div>
+
+      </div>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,21 @@
+/* Basisstyling für alle Boxen */
+
+.box {
+  width: 150px;
+  height: 150px;
+  margin: 30px;
+}
+
+/* Für jede Box die eigene Farbe zuweisen */
+#greenBox {
+  background-color: lightgreen;
+}
+
+#redBox {
+  background-color: #FF0000;
+  opacity: 0;
+}
+
+#blueBox {
+  background-color: lightblue;
+}

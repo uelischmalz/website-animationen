@@ -1,0 +1,61 @@
+/* Container, den wir benötigen, um den Rahmen in der Mitte anzuzeigen */
+#container {
+  /* Basisstyling */
+  width: 100vw;
+  height: 70vh;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  place-items: center;
+}
+
+/* Rahmen */
+#rahmen {
+  /* Basisstyling */
+  width: 30vw;
+  height: 500px;
+
+  border: 3px solid black;
+  box-sizing: border-box;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  place-items: center;
+
+  /* Das Formular und die Nachricht sind nur innerhalb des Rahmens sichtbar */
+
+}
+
+/* Formular */
+#form {
+  /* Basisstyling */
+  width: 30vw;
+  height: 500px;
+  padding: 30px;
+  box-sizing: border-box;
+  background-color: #cccccc;
+
+  /* Dauer der slideOutUp - Animation festlegen */
+
+}
+
+/* Nachricht */
+#message {
+  /* Basisstyling */
+  width: 30vw;
+  height: 500px;
+  position: absolute;
+  padding: 30px;
+  box-sizing: border-box;
+  background-color: rgba(0, 255, 0, 0.3);
+
+  /* Dauer der slideInUp - Animation festlegen */
+  
+}
+
+/* Klasse, um Elemente auszublenden */
+.off {
+  display: none;
+}
