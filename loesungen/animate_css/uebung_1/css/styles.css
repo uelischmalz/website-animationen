@@ -1,0 +1,32 @@
+#container {
+  /* Basisstyling für das Layout */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  place-items: center;
+
+  width: 100vw;
+  height: 50vh;
+}
+
+.box {
+  /* Basisstyling der Boxen */
+  width: 150px;
+  height: 150px;
+  background-color: #888888;
+}
+
+#boxLinks {
+  /* Verzögerung der Animation einstellen */
+  animation-delay: 1s;
+}
+
+#boxMitte {
+  /* Verzögerung der Animation einstellen */
+  animation-delay: 0;
+}
+
+#boxRechts {
+  /* Verzögerung der Animation einstellen */
+  animation-delay: 1s;
+}

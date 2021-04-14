@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Animate.css | Übung 3</title>
+
+    <!-- Animate.css vom CDN einbinden -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+  </head>
+  <body>
+    <h1>Animate.css | Übung 3</h1>
+
+    <div id="container">
+      <div id="rahmen">
+
+        <div id="form" class="animate_animated">
+          <form>
+            <p>Name:</p>
+            <input type="text" name="name" value="">
+            <p>Email:</p>
+            <input type="text" name="email" value="">
+            <p>Nachricht:</p>
+            <textarea name="text" rows="4" cols="30"></textarea>
+            <br><br>
+            <button id="submitButton" type="button" name="button">Absenden</button>
+          </form>
+        </div>
+
+        <div id="message" class="animate_animated off">
+          <p>Nachricht wurde erfolgreich versendet.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <script>
+        /* Variablen festlegen */
+        let form = document.querySelector("#form");
+        let message = document.querySelector("#message");
+        let submitButton = document.querySelector("#submitButton");
+
+        /* Button funktional machen */
+        submitButton.addEventListener('click', function(){
+          /* Nachricht wird sichtbar */
+          message.classList.remove("off");
+          /* Nachricht erhält die Animation slideInUp */
+          message.classList.add("animate__slideInUp");
+          /* Formular erhält die Animation slideOutUp */
+          form.classList.add("animate__slideOutUp");
+
+          /* EventListener, der aktiviert wird, wenn die Animation vom Formular beendet ist */
+         form.addEventListener('animationend', function(){
+            /* Class-Attribut des Formulars wird auf die Standardwerte, aber mit off gestellt, damit es nicht sichtbar ist. */
+            form.setAttribute("class", "animate__animated off");
+          });
+
+          /* EventListener, der aktiviert wird, wenn die Animation der Nachricht beendet ist */
+          message.addEventListener('animationend', function(){
+            /* Class-Attribut der Nachricht wird auf die Standardwerte, aber ohne off gestellt, damit sie sichtbar bleibt. */
+            message.setAttribute("class", "animate__animated");
+          });
+        });
+
+    </script>
+
+
+  </body>
+</html>

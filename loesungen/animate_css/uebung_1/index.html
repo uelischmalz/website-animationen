@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Animate.css | Übung 1</title>
+
+    <!-- Animate.css vom CDN einbinden -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+  </head>
+  <body>
+    <h1>Animate.css | Übung 1</h1>
+
+    <div id="container">
+      <div id="boxLinks" class="box animate__animated  animate__fadeInLeft"></div>
+      <div id="boxMitte" class="box animate__animated  animate__backInUp"></div>
+      <div id="boxRechts" class="box animate__animated  animate__fadeInRight"></div>
+    </div>
+
+    <script>
+      let box = document.querySelector("#boxMitte");
+
+      /* EventListener für die mittlere Box, wenn man die Box hovert */
+      box.addEventListener('mouseenter', function(){
+        /* Die Klasse der vorherigen Animation muss entfernt werden, damit man etwas neues animieren kann */
+        box.classList.remove("animate__backInUp");
+        /* Neue Animation hinzufügen */
+        box.classList.add("animate__wobble");
+      });
+
+      /* EventListener, der beim Ende der Animation aufgerufen wird */
+      box.addEventListener('animationend', function(){
+        /* Animationsklasse wird entfernt, damit die Box für weitere Animationen bereit ist */
+        box.classList.remove("animate__wobble");
+      });
+
+    </script>
+
+  </body>
+</html>

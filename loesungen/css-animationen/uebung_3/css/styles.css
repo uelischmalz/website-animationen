@@ -1,0 +1,55 @@
+#container {
+  /* Basisstyling */
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  place-items: center;
+
+  width: 100vw;
+  height: 100vh;
+}
+
+
+#rahmen {
+  /* Basisstyling */
+  width: 750px;
+  height: 50px;
+  border: 3px solid black;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+}
+
+#balken {
+  /* Basisstyling */
+  height: 100%;
+  width: 0%;
+  background-color: #888888;
+
+  /* Animation */
+  animation-name: ladebalken;
+  animation-duration: 5s;
+
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+/* Keyframes für die Animation "ladebalken" festlegen */
+@keyframes ladebalken {
+  from {
+    width: 0%;
+    background-color: #FF0000;
+  }
+
+  50% {
+    background-color: #FFFF00;
+  }
+
+  to {
+    width: 100%;
+    background-color: #00FF00;
+  }
+
+}

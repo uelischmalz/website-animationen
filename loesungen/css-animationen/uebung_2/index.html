@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>CSS-Animationen | Übung 2</title>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <h1>CSS-Animationen | Übung 2</h1>
+    <button id="animationController">Animation stoppen</button>
+
+    <div id="container">
+      <div id="spinner">
+        <div class="spinnerElement"></div>
+        <div class="spinnerElement"></div>
+        <div class="spinnerElement"></div>
+        <div class="spinnerElement"></div>
+    </div>
+
+
+    <script>
+      let animationController = document.querySelector("#animationController");
+      let spinner = document.querySelector("#spinner");
+
+      /* Animation lässt sich über den Button pausieren und weiter abspielen */
+      animationController.addEventListener('click', function(){
+        /* Der Text im Button wird als Indikator verwendet, ob die Animation gerade läuft oder nicht */
+        if(animationController.innerHTML === "Animation stoppen"){
+          /* CSS-Property wird auf paused umgestellt (animation-play-state: paused;) */
+          spinner.style.animationPlayState = 'paused';
+          /* Text im Button wird auf "Animation starten" geändert */
+          animationController.innerHTML = "Animation starten";
+        } else {
+          /* CSS-Property wird auf running umgestellt (animation-play-state: running;) */
+          spinner.style.animationPlayState = 'running';
+          /* Text im Button wird auf "Animation stoppen" geändert */
+          animationController.innerHTML = "Animation stoppen";
+        }
+      });
+    </script>
+  </body>
+</html>

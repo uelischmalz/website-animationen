@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Animate.css | Übung 2</title>
+
+    <!-- Animate.css vom CDN einbinden -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+  </head>
+  <body>
+    <h1>Animate.css | Übung 2</h1>
+
+    <button id="last">Zurück</button>
+    <button id="next">Weiter</button>
+
+    <div id="container">
+      <div id="rahmen">
+        <img id="img1" src="img/001.jpg" class="image animate__animated">
+        <img id="img2" src="img/002.jpg" class="image animate__animated off">
+        <img id="img3" src="img/003.jpg" class="image animate__animated off">
+        <img id="img4" src="img/004.jpg" class="image animate__animated off">
+      </div>
+    </div>
+
+    <script>
+      let forwardBtn = document.querySelector("#next");
+      let backBtn = document.querySelector("#last");
+
+      /* Erstes Bild bestimmen, das angezeigt wird */
+      let imageValue = 1;
+
+      /* EventListener für den Weiter-Button */
+      forwardBtn.addEventListener('click', function(){
+        /* ID für das Bild erstellen, welches ausgeblendet werden soll */
+        let currentImageID = '#img' + imageValue;
+
+        /* Mit der Variabel des aktuellen Bildes herausfinden, welches das nächste Bild sein soll */
+        /* Wir haben 4 Bilder. Wenn die Zahl kleiner oder gleich 3 ist... */
+        if(imageValue <= 3){
+          /* ... addieren wir + 1, so ist der höchstmögliche Wert 4 */
+          imageValue = imageValue + 1;
+        } else {
+          /* ansonsten setzen wir den Wert auf 1, dann sieht man wieder das erste Bild */
+          imageValue = 1;
+        }
+
+        /* Die ID für das nächste Bild wird erstellt */
+        let nextImageID = "#img" + imageValue;
+
+        /* Mit den beiden IDs können wir jetzt die Bilder im DOM ansprechen */
+        let currentImage = document.querySelector(currentImageID);
+        let nextImage = document.querySelector(nextImageID);
+
+        /* Das nächste Bild wird sichtbar gemacht */
+        nextImage.classList.remove("off");
+        /* Das nächste Bild erhält die slideInLeft - Animation */
+        nextImage.classList.add("animate__slideInLeft");
+        /* Das aktuelle Bild erhält die slideOutRight - Animation */
+        currentImage.classList.add("animate__slideOutRight");
+
+        /* Nach Animationsende des aktuellen Bildes... */
+        currentImage.addEventListener('animationend', function(){
+          /* ...werden die Klassen zurückgesetzt, aber es erhält zusätzlich die Klasse off, damit es nicht mehr sichtbar ist */
+          currentImage.setAttribute("class", "image animate__animated off");
+        });
+
+        /* Nach Animationsende des nächsten Bildes... */
+        nextImage.addEventListener('animationend', function(){
+          /* ...werden die Klassen zurückgesetzt, aber ohne die Klasse off, damit es im Rahmen sichtbar bleibt */
+          nextImage.setAttribute("class", "image animate__animated");
+        });
+      });
+
+      /* EventListener für den Zurück-Button */
+      backBtn.addEventListener('click', function(){
+        /* ID für das Bild erstellen, welches ausgeblendet werden soll */
+        let currentImageID = '#img' + imageValue;
+
+        /* Mit der Variabel des aktuellen Bildes herausfinden, welches das nächste Bild sein soll */
+        /* Wenn der Wert ungleich 1 ist... */
+        if(imageValue !== 1){
+          /* ...wird für das vorherige Bild 1 subtrahiert. */
+          imageValue = imageValue - 1;
+        } else {
+          /* Wenn der Wert gleich 1 ist, wird er auf 4 gesetzt, damit man wieder das letzte Bild sieht */
+          imageValue = 4;
+        }
+
+        /* Die ID für das nächste Bild wird erstellt */
+        let nextImageID = "#img" + imageValue;
+
+        /* Mit den beiden IDs können wir jetzt die Bilder im DOM ansprechen */
+        let currentImage = document.querySelector(currentImageID);
+        let nextImage = document.querySelector(nextImageID);
+
+        /* Das nächste Bild wird sichtbar gemacht */
+        nextImage.classList.remove("off");
+        /* Das nächste Bild erhält die slideInRight - Animation */
+        nextImage.classList.add("animate__slideInRight");
+        /* Das aktuelle Bild erhält die slideOutLeft - Animation */
+        currentImage.classList.add("animate__slideOutLeft");
+
+        /* Nach Animationsende des aktuellen Bildes... */
+        currentImage.addEventListener('animationend', function(){
+          /* ...werden die Klassen zurückgesetzt, aber es erhält zusätzlich die Klasse off, damit es nicht mehr sichtbar ist */
+          currentImage.setAttribute("class", "image animate__animated off");
+        });
+
+        /* Nach Animationsende des nächsten Bildes... */
+        nextImage.addEventListener('animationend', function(){
+          /* ...werden die Klassen zurückgesetzt, aber ohne die Klasse off, damit es im Rahmen sichtbar bleibt */
+          nextImage.setAttribute("class", "image animate__animated");
+        });
+
+      });
+
+    </script>
+  </body>
+</html>

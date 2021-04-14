@@ -1,0 +1,85 @@
+#container {
+  /* Grid-Raster */
+  display: grid;
+  grid-template-columns: 50vw 50vw; /* Spalten müssen eine fixe Breite haben, damit mit Margins animiert werden kann */
+  grid-template-rows: 1fr;
+
+  align-content: center;
+  justify-content: center;
+
+  /* Basisstyling */
+  margin-top: 10vh;
+
+ /* Schauen, dass sich die Seitenbreite wegen der Animation nicht verändert */
+  overflow: hidden;
+
+  /*Container schmaler machen und ungefähr in der Mitte platzieren, damit man sieht, wie der Container die Animationen maskiert */
+  width: 70vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#text {
+  /* Basisstyling */
+  margin: 30px;
+  width: 30vw; /* Das Text-Element muss eine fixe Breite haben, sonst gibt es einen dynamischen Zeilenumbruch */
+
+  /* Animation */
+
+  animation-name: textAnimation;
+  animation-duration: 2s;
+
+  animation-timing-function: ease-out;
+
+  animation-fill-mode: both;
+
+}
+
+/* Keyframes für die Animation textAnimation erstellen */
+
+@keyframes textAnimation {
+  from {
+    margin-left: 50vw;
+  }
+
+  to {
+    margin-left: 30px;
+  }
+}
+
+#box {
+  /* Basisstyling */
+  width: 100px;
+  height: 100px;
+
+  margin: 30px;
+
+  background-color: #888888;
+
+  /* Ausrichtung innerhalb der Grid-Zelle*/
+  align-self: center;
+  justify-self: right;
+
+  /* Animation */
+
+  animation-name: boxAnimation;
+  animation-duration: 2s;
+
+  animation-delay: 1s;
+
+  animation-timing-function: ease-out;
+
+  animation-fill-mode: both;
+}
+
+/* Keyframes für die Animation boxAnimation erstellen */
+
+@keyframes boxAnimation {
+  from {
+    margin-right: 50vw;
+  }
+
+  to {
+    margin-right: 30px;
+  }
+}

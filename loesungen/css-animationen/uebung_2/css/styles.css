@@ -1,0 +1,53 @@
+#container {
+  /* Layout */
+  width: 100vw;
+  height: 100vh;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+
+  place-items: center;
+}
+
+#spinner {
+  /* Layout */
+  display: grid;
+  grid-template-columns: 30px 30px;
+  grid-template-rows: 30px 30px;
+
+  grid-gap: 10px;
+
+  place-items: center;
+
+  /* Animation */
+  animation-name: loadingSpinner;
+  animation-duration: 1s;
+
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  animation-play-state: running;
+
+}
+
+/* Keyframes für die Animation loadingSpinner */
+@keyframes loadingSpinner {
+  0% {
+    transform: rotate(0deg);
+
+  }
+
+  100% {
+    transform: rotate(359deg);
+
+  }
+}
+
+/* Styling der einzelnen Quadrate */
+
+.spinnerElement {
+  width: 30px;
+  height: 30px;
+  background-color: lightblue;
+}
